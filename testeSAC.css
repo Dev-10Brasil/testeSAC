@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+body {
+    min-width: 640px;
+}
+
 #cabecalho {
     background-color: rgb(255, 165, 0);
     height: 100px;
@@ -51,6 +55,11 @@
     padding-bottom: 20px;
 }
 
+#formulario {
+    max-width: 540px;
+    min-width: 300px;
+}
+
 #redesSociais  {
     background-color: yellow;
     border-top-right-radius: 50px;
@@ -71,4 +80,20 @@
 .tituloRodape {
     color: orange;
     text-shadow: black 1px 1px;
+}
+
+@media screen and (min-width: 1078px) {
+    
+    #formulario {
+        width: 540px;
+    }
+
+}
+
+@media screen and (max-width: 1078px) {
+    
+    #formulario {
+        width: 300px;
+    }
+
 }
