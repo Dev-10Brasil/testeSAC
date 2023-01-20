@@ -16,6 +16,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
+    <!-- reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 </head>
 <body>
 
@@ -103,38 +106,43 @@
 
                 <div class="form-row container-fluid justify-content-center">
                     <div class="col-12 mb-3">
-                        <label for="nome">Nome Completo:</label><br/>
-                        <input type="text" class="form-control" name="nome" placeholder="Miguel Aguilar Nostradamus" autocomplete="off">
-                    </div>
-                </div>
-                <div class="form-row container-fluid justify-content-between">
-                    <div class="col-10.col-4 mb-3">
-                        <label for="telefone">Telefone</label><br/>
-                        <input type="tel" class="form-control" name="telefone" size="10" autocomplete="off">
-                    </div>
-                    <div class="col-10.col-4 mb-3">
-                        <label for="celular">Celular</label><br/>
-                        <input type="tel" class="form-control" name="celular" size="10" autocomplete="off">
-                    </div>
-                    <div class="col-10.col-4 mb-3">
-                        <label for="e-mail">E-mail</label><br/>
-                        <input type="email" class="form-control" name="e-mail" size="10" autocomplete="off">
-                    </div>
-                </div>
-                <div class="form-row container-fluid justify-content-between">
-                    <div class="col-10.col-4 mb-3">
-                        <label class="my-1 mr-2">Cep: <br/><input class="form-control" name="cep" type="text" id="cep" value="" size="10" maxlength="9" autocomplete="off" onblur="pesquisacep(this.value);" /></label>
-                    </div>
-                    <div class="col-10.col-4 mb-3">
-                        <label class="my-1 mr-2" for="estado">Estado: <br/><input class="form-control" name="estado" type="text" id="estado" size="2" autocomplete="off"/></label>
-                    </div>
-                    <div class="col-10.col-4 mb-3">
-                        <label class="my-1 mr-2" for="cidade">Cidade: <br/><input class="form-control" name="cidade" type="text" id="cidade" size="20" autocomplete="off"/></label>
+                        <label class="my-1 mr-2" for="nome">*Nome Completo:</label><br/>
+                        <input type="text" class="form-control" name="nome" placeholder="Digite seu nome completo" autocomplete="off">
                     </div>
                 </div>
                 <div class="form-row container-fluid justify-content-between">
                     <div class="col-12.col-6 mb-3">
-                        <label class="my-1 mr-2" for="acao">O que você deseja fazer?</label><br/>
+                        <label class="my-1 mr-2" for="telefone">*Telefone:</label><br/>
+                        <input type="tel" class="form-control" name="telefone" autocomplete="off">
+                    </div>
+                    <div class="col-12.col-6 mb-3">
+                        <label class="my-1 mr-2" for="celular">Celular:</label><br/>
+                        <input type="tel" class="form-control" name="celular" autocomplete="off">
+                    </div>
+                </div>
+                <div class="form-row container-fluid justify-content-center">
+                    <div class="col-12 mb-3">
+                        <label class="my-1 mr-2" for="e-mail">*E-mail</label><br/>
+                        <input value="aquila.real0@gmail.com" type="email" class="form-control" name="e-mail" size="32" autocomplete="off">
+                    </div>
+                </div>
+                <div class="form-row container-fluid justify-content-between">
+                    <div class="col-10.col-4 mb-3">
+                        <label class="my-1 mr-2">*Cep:</label><br/>
+                        <input value="85801260" class="form-control" name="cep" type="text" id="cep" value="" size="10" maxlength="9" autocomplete="off" onblur="pesquisacep(this.value);" />
+                    </div>
+                    <div class="col-10.col-4 mb-3">
+                        <label class="my-1 mr-2">*Estado:</label><br/>
+                        <input value="PR" class="form-control" name="estado" type="text" id="estado" size="2" autocomplete="off"/>
+                    </div>
+                    <div class="col-10.col-4 mb-3">
+                        <label class="my-1 mr-2">*Cidade:</label><br/>
+                        <input value="Cascavel" class="form-control" name="cidade" type="text" id="cidade" size="20" autocomplete="off"/>
+                    </div>
+                </div>
+                <div class="form-row container-fluid justify-content-between">
+                    <div class="col-12.col-6 mb-3">
+                        <label class="my-1 mr-2" for="acao">*O que você deseja fazer?</label><br/>
                         <select class="custom-select my-1 mr-sm-2" name="acao" id="acao" autocomplete="off">
                             <option value="\0">Selecione uma ação</option>
                             <option value="Denúncia">Denúncia</option>
@@ -146,7 +154,7 @@
                         </select>
                     </div>
                     <div class="col-12.col-6 mb-3">
-                        <label class="my-1 mr-2" for="setor">Com quem deseja falar?</label><br/>
+                        <label class="my-1 mr-2" for="setor">*Com quem deseja falar?</label><br/>
                         <select class="custom-select my-1 mr-sm-2" name="setor" id="setor" autocomplete="off">
                             <option value="\0">Selecione um setor</option>
                             <option value="Comercial">Comercial</option>
@@ -162,7 +170,7 @@
                 </div>
                 <div class="form-row container-fluid justify-content-between">
                     <div class="col-12.col-6 mb-3">
-                        <label class="my-1 mr-2" for="tentativas">Quantas vezes nos contatou para este assunto/problema?</label><br/>
+                        <label class="my-1 mr-2" for="tentativas">*Quantas vezes nos contatou para este assunto/problema?</label><br/>
                         <select class="custom-select my-1 mr-sm-2" name="tentativas" id="tentativas" autocomplete="off">
                             <option value="1">Esta é a primeira vez</option>
                             <option value="2">Esta é a segunda vez</option>
@@ -171,7 +179,7 @@
                         </select>
                     </div>
                     <div class="col-12.col-6 mb-3">
-                        <label class="form-check-label" for="prefere">Como gostaria de ser atendido?</label><br/>
+                        <label class="form-check-label" for="prefere">*Como gostaria de ser atendido?</label><br/>
                         <div id="opcao-pref">
                             <label class="form-check-label"><input class="form-check-input" type="radio" name="prefere" id="pref-tel" value="Telefonar" autocomplete="off">Telefone</label><br/>
                             <label class="form-check-label"><input class="form-check-input" type="radio" name="prefere" id="pref-whatsApp" value="WhatsApp" autocomplete="off">WhatsApp</label><br/>
@@ -179,19 +187,24 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-row container-fluid justify-content-between">
+                <div class="form-row container-fluid justify-content-center">
                     <div class="col-12 mb-3">
-                        <label for="feedback">Reclamações, sugestões e/ou observações:</label><br/>
+                        <label class="my-1 mr-2">*Reclamações, sugestões e/ou observações:</label><br/>
                         <textarea class="form-control" name="feedback" id="feedback" cols="42" rows="5" autocomplete="off"></textarea>
                     </div>
                 </div>
-                <div class="form-row container-fluid justify-content-between">
+                <div class="form-row mb-3 container-fluid justify-content-center">
+                    <div class="col-12">    
+                        <div class="g-recaptcha" data-sitekey="6Lf_-BIkAAAAAJqlCgfpiphT04o79exihMtHkatJ"></div>
+                    </div>
+                </div>
+                <div class="form-row mb-3 container-fluid justify-content-between">
                     <div class="col-4 mb-3">
                         <button type="reset">Limpar Formulário</button>
                     </div>
-                    <div class="col-6"></div>
-                    <div class="col-2 mb-3">
-                        <button type="submit">Enviar</button>
+                    <div class="col-7"></div>
+                    <div class="col-1 mb-3">
+                        <button id="enviar" type="submit">Enviar</button>
                     </div>
                 </div>
                 
