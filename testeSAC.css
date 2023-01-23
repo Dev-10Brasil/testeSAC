@@ -60,6 +60,18 @@ body {
     min-width: 300px;
 }
 
+input:valid, select:valid, textarea:valid {
+    border-color: green;
+}
+
+input:invalid, textarea:invalid {
+    border-color: red;
+}
+
+input:placeholder-shown, textarea:placeholder-shown, select:invalid {
+    border-color: black;
+}
+
 #redesSociais  {
     background-color: yellow;
     border-top-right-radius: 50px;
