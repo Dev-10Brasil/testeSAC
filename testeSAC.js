@@ -1,45 +1,53 @@
-function limpa_formulário_cep() {
-        document.getElementById('cidade').value=("");
-        document.getElementById('estado').value=("");
-}
+const nome = document.getElementById("nome");
+const telefone = document.getElementById("telefone");
+const celular = document.getElementById("celular");
+const mail = document.getElementById("mail");
+const cep = document.getElementById("cep");
+const estado = document.getElementById("estado");
+const cidade = document.getElementById("cidade");
+const acao = document.getElementById("acao");
+const setor = document.getElementById("setor");
+const tentativas = document.getElementById("tentativas");
+const prefere = document.getElementById("prefere");
+const feedback = document.getElementById("feedback");
 
-function meu_callback(conteudo) {
-    if (!("erro" in conteudo)) {
-        document.getElementById('cidade').value=(conteudo.localidade);
-        document.getElementById('estado').value=(conteudo.uf);
+nome.addEventListener("input", function (aviso) {
+    if (nome.validity.typeMismatch) {
+      nome.setCustomValidity("Por favor, digite o seu nome completo.");
     }
-    else {
-        limpa_formulário_cep();
-        alert("CEP não encontrado.");
+     else {
+      nome.setCustomValidity("");
     }
-}
-    
-function pesquisacep(valor) {
+});
 
-    var cep = valor.replace(/\D/g, '');
-
-    if (cep != "") {
-
-        var validacep = /^[0-9]{8}$/;
-
-        if(validacep.test(cep)) {
-
-            document.getElementById('cidade').value="...";
-            document.getElementById('estado').value="...";
-
-            var script = document.createElement('script');
-
-            script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
-
-            document.body.appendChild(script);
-
-        }
-        else {
-            limpa_formulário_cep();
-            alert("Formato de CEP inválido.");
-        }
+telefone.addEventListener("input", function (aviso) {
+    if (telefone.validity.typeMismatch) {
+      telefone.setCustomValidity("Por favor, digite um número de telefone válido.");
+    } else {
+      telefone.setCustomValidity("");
     }
-    else {
-        limpa_formulário_cep();
+});
+
+celular.addEventListener("input", function (aviso) {
+    if (celular.validity.typeMismatch) {
+      celular.setCustomValidity("Por favor, digite um número de telefone válido.");
+    } else {
+      celular.setCustomValidity("");
     }
-};
+});
+
+mail.addEventListener("input", function (aviso) {
+    if (mail.validity.typeMismatch) {
+      mail.setCustomValidity("Por favor, digite um e-mail válido.");
+    } else {
+      mail.setCustomValidity("");
+    }
+});
+
+cep.addEventListener("input", function (aviso) {
+    if (cep.validity.typeMismatch) {
+      cep.setCustomValidity("Por favor, digite um CEP válido");
+    } else {
+      cep.setCustomValidity("");
+    }
+});
